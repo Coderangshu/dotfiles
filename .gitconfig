@@ -31,5 +31,5 @@
 [alias]
 	graph = log --graph --all --pretty --oneline
 [help]
-	autocorrect = 10
+	autocorrect = 1
 
