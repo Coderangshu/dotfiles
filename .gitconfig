@@ -1,0 +1,35 @@
+[user]
+	email = senguptaangshuman17@gmail.com
+	name = Angshuman Sengupta
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[init]
+	defaultBranch = master
+[filesystem "Oracle Corporation|15.0.1|/dev/sda1"]
+	timestampResolution = 26689 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[filesystem "Oracle Corporation|15.0.1|/dev/sda2"]
+	timestampResolution = 23190 nanoseconds
+	minRacyThreshold = 1888 microseconds
+[core]
+	editor = vim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = senguptaangshuman17@gmail.com
+	smtpserverport = 587
+[credential]
+	helper = store
+[filesystem "Oracle Corporation|15.0.2|/dev/sda1"]
+	timestampResolution = 13215 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[alias]
+	graph = log --graph --all --pretty --oneline
+[help]
+	autocorrect = 10
+
