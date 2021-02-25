@@ -118,18 +118,25 @@ alias please='sudo'
 alias tb='nc termbin.com 9999'
 alias paru="paru --bottomup"
 
+#Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+
+#get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+#Recent Installed Packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
 # Replace yay with paru
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
-alias track='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias track='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'R
 
 ## Import colorscheme from 'wal' asynchronously
 if type "wal" >> /dev/null 2>&1
    cat ~/.cache/wal/sequences
 end
 
-# Conda initialize
-source /home/angshuman/miniconda3/etc/fish/conf.d/conda.fish
 
 ## Run paleofetch if session is interactive
 if status --is-interactive
