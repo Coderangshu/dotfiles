@@ -72,11 +72,11 @@ end
 
 ## Useful aliases
 # Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first' # preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias l.="exa -a | egrep '^\.'"
+alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
 # Replace some more things with better alternatives
 [ ! -x /usr/bin/bat ] && [ -x /usr/bin/cat ] && alias cat='bat'
@@ -121,16 +121,16 @@ alias paru="paru --bottomup"
 #Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 
-#get the error messages from journalctl
+# Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-#Recent Installed Packages
+# Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # Replace yay with paru
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
-alias track='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'R
+alias track='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 ## Import colorscheme from 'wal' asynchronously
 if type "wal" >> /dev/null 2>&1
