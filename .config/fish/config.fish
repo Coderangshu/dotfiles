@@ -165,16 +165,26 @@ bind '$' __history_previous_command_arguments
 
 
 # Custom Garuda aliases
-alias ls='exa -al --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
 alias aup="paru -Syu"
+# Replace some more things with better alternatives
+[ ! -x /usr/bin/bat ] && [ -x /usr/bin/cat ] && alias cat='bat'
+
+# Common use
+alias aup="pamac upgrade --aur"
 alias grubup="sudo update-grub"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias tarnow='tar -acf '
 alias untar='tar -zxvf '
 alias wget='wget -c '
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+alias upd='sudo reflector --latest 5 --age 2 --fastest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && sudo pacman -Syu && fish_update_completions && sudo updatedb'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -187,10 +197,21 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias upd='sudo reflector --latest 5 --country India --age 2 --fastest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && sudo pacman -Syu'
+alias hw='hwinfo --short'                                   # Hardware Info
+alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB (expac must be installed)
+alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'                     # List amount of -git packages
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+#Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+
+# Get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# Recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 alias track='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
