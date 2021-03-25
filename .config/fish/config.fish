@@ -152,6 +152,8 @@ if type "wal" >> /dev/null 2>&1
    cat ~/.cache/wal/sequences
 end
 
+# Conda initialize
+source /home/angshuman/miniconda3/etc/fish/conf.d/conda.fish
 
 ## Run paleofetch if session is interactive
 if status --is-interactive
