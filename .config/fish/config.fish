@@ -157,5 +157,5 @@ source /home/angshuman/miniconda3/etc/fish/conf.d/conda.fish
 
 ## Run paleofetch if session is interactive
 if status --is-interactive
-   paleofetch
+   paleofetch | lolcat
 end
