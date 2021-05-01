@@ -218,5 +218,5 @@ alias track='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # Conda initialize
 # source /home/angshuman/miniconda3/etc/fish/conf.d/conda.fish
 
-neofetch
+neofetch | lolcat
 starship init fish | source
