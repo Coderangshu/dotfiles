@@ -84,6 +84,10 @@ function copy
     end
 end
 
+## Import colorscheme from 'wal' asynchronously
+if type "wal" >> /dev/null 2>&1
+   cat ~/.cache/wal/sequences
+end
 
 ## Useful aliases
 # Replace ls with exa
@@ -134,7 +138,6 @@ alias apt-get='man pacman'
 alias helpme='cht.sh --shell'
 alias please='sudo'
 alias tb='nc termbin.com 9999'
-alias paru="paru --bottomup"
 
 # Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
@@ -144,13 +147,7 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
 alias track='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-## Import colorscheme from 'wal' asynchronously
-if type "wal" >> /dev/null 2>&1
-   cat ~/.cache/wal/sequences
-end
 
 # Conda initialize
 source /home/angshuman/miniconda3/etc/fish/conf.d/conda.fish
