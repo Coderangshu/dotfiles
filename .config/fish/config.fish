@@ -93,7 +93,7 @@ end
 # Replace ls with exa
 alias ls='exa --color=always --group-directories-first --icons' # preferred listing
 alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias ll='exa -al --color=always --group-directories-first --icons'  # long format
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
@@ -154,5 +154,5 @@ source /home/angshuman/miniconda3/etc/fish/conf.d/conda.fish
 
 ## Run paleofetch if session is interactive
 if status --is-interactive
-   paleofetch | lolcat
+   neofetch | lolcat
 end
