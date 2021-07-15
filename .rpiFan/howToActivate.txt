@@ -1,0 +1,10 @@
+From inside this folder
+
+Copy fanController.service to the systemd folder:
+sudo cp fanController.service /etc/systemd/system/fanController.service
+
+Reload the systemd daemon:
+sudo systemctl daemon-reload
+
+Enable the service:
+sudo systemctl enable fanController
