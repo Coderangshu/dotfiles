@@ -8,7 +8,7 @@ except ModuleNotFoundError:
 try:
     from gpiozero import CPUTemperature as cput
 except ModuleNotFoundError:
-    os.system("sudo pacman -S python-gpiozero")
+    os.system("sudo pacman -S --noconfirm python-gpiozero")
     try:
         from gpiozero import CPUTemperature as cput
     except ModuleNotFoundError:
