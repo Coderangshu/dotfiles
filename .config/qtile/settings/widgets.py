@@ -1,6 +1,7 @@
 import os
 from libqtile import widget
 from settings.theme import colors
+from settings.path import *
 from gpiozero import CPUTemperature as cput
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
@@ -74,8 +75,13 @@ primary_widgets = [
 
     *workspaces(),
 
-    widget.TaskList(**base(),highlight_method='block',margin_y=0,parse_text=tasklistStringHide,icon_size=17,txt_floating='',fontsize=15),
+    # Search via Logo (Rofi)
+    widget.TextBox(**base(bg='color4'),text="",fontsize=30,
+        mouse_callbacks={"Button1": lambda : os.system('sh ~/.config/rofi/colorful/launcher.sh')}),
+    widget.TextBox(**base(bg='dark',fg='color4'),text="",fontsize=65,padding=-10),
 
+    # Open Apps Icons Display
+    widget.TaskList(**base(),highlight_method='block',margin_y=0,parse_text=tasklistStringHide,icon_size=17,txt_floating='',fontsize=15),
     widget.Spacer(**base()),
 
     # Check Updates
