@@ -112,6 +112,9 @@ alias jctl="journalctl -p 3 -xb"
 # lf-ueberzug alias to lf
 alias lf='lf-ueberzug'
 
+# sudo docker aliased
+alias dock='sudo docker'
+
 # Take colorscheme from pywal
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
