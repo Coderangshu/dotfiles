@@ -1,0 +1,5 @@
+1. Download cloudflare executable from https://github.com/cloudflare/cloudflared/releases
+2. Paste the below lines in client .ssh/config file:
+
+Host ssh.angshuman.ml
+  ProxyCommand "path\to\cloudflare\executable\cloudflared-windows-amd64.exe" access ssh --hostname %h
